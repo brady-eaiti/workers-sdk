@@ -1,5 +1,29 @@
 # @cloudflare/containers-shared
 
+## 0.25.0
+
+### Minor Changes
+
+- [#16739](https://github.com/cloudflare/workers-sdk/pull/16739) [`6af492e`](https://github.com/cloudflare/workers-sdk/commit/6af492e92394c3e638bda4cf6d560698cef1c715) Thanks [@GregBrimble](https://github.com/GregBrimble)! - Add custom Cloudflare API headers through `CLOUDFLARE_API_HEADERS`
+
+  Set `CLOUDFLARE_API_HEADERS` to a JSON object such as `{"X-Custom-Header":"value"}` to add headers to Cloudflare API requests. Custom headers override existing unprotected request headers, body and transport headers are protected, and header values outside the diagnostic allowlist remain redacted regardless of log sanitization settings.
+
+- [#15695](https://github.com/cloudflare/workers-sdk/pull/15695) [`d437be3`](https://github.com/cloudflare/workers-sdk/commit/d437be397b9e36d76f1a0cd44fe56e77c70a077d) Thanks [@ghostwriternr](https://github.com/ghostwriternr)! - Let callers of `prepareContainerImagesForDev()` describe the operation and how to disable Containers when Docker cannot be launched
+
+  The new optional `operation` and `disableContainersHint` arguments replace the "before running dev" wording and the advice to set `dev.enable_containers` or pass `--enable-containers=false`. The defaults are unchanged.
+
+### Patch Changes
+
+- [#16740](https://github.com/cloudflare/workers-sdk/pull/16740) [`44b39b0`](https://github.com/cloudflare/workers-sdk/commit/44b39b02765d246479f49b690f9e9b3d8645a303) Thanks [@GregBrimble](https://github.com/GregBrimble)! - Redact header values outside a safe diagnostic allowlist, regardless of log sanitization settings.
+
+  Apply the same filtering to request, response, and request-options diagnostics. Strip `X-Auth-Key` alongside `Authorization` when forwarding local artifact Git requests.
+
+- Updated dependencies [[`6af492e`](https://github.com/cloudflare/workers-sdk/commit/6af492e92394c3e638bda4cf6d560698cef1c715), [`44b39b0`](https://github.com/cloudflare/workers-sdk/commit/44b39b02765d246479f49b690f9e9b3d8645a303)]:
+  - @cloudflare/workers-utils@0.53.0
+  - @cloudflare/build-output-utils@0.9.11
+  - @cloudflare/cli-shared-helpers@0.3.6
+  - @cloudflare/config@0.31.0
+
 ## 0.24.0
 
 ### Minor Changes

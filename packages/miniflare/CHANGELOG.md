@@ -1,5 +1,17 @@
 # miniflare
 
+## 5.20261109.1-beta
+
+### Patch Changes
+
+- [#16612](https://github.com/cloudflare/workers-sdk/pull/16612) [`267dadb`](https://github.com/cloudflare/workers-sdk/commit/267dadbe69ac8221febef059382cec68eaec1b19) Thanks [@petebacondarwin](https://github.com/petebacondarwin)! - Limit the environment passed to local Browser Rendering and ensure a usable home directory
+
+  Chrome now receives only the host configuration needed for browser operation, keeping unrelated application credentials out of its environment. It uses the operating system account's home directory when `HOME` is missing or empty. If the account cannot be looked up, Chrome uses its temporary profile directory as its home. Temporary browser profiles are created with owner-only permissions on POSIX platforms.
+
+- [#16740](https://github.com/cloudflare/workers-sdk/pull/16740) [`44b39b0`](https://github.com/cloudflare/workers-sdk/commit/44b39b02765d246479f49b690f9e9b3d8645a303) Thanks [@GregBrimble](https://github.com/GregBrimble)! - Redact header values outside a safe diagnostic allowlist, regardless of log sanitization settings.
+
+  Apply the same filtering to request, response, and request-options diagnostics. Strip `X-Auth-Key` alongside `Authorization` when forwarding local artifact Git requests.
+
 ## 5.20261109.0-beta
 
 ### Patch Changes
